@@ -1,0 +1,380 @@
+/* pages/share/publish/publish.wxss */
+.container {
+  background-image: url('https://miniprogramforlusin.oss-cn-hangzhou.aliyuncs.com/Sucai/backgroundone.png');
+  min-height: 100vh;
+  padding: 20rpx;
+}
+
+/* 发布表单 */
+.publish-form {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 20rpx;
+  padding: 40rpx;
+  backdrop-filter: blur(10rpx);
+  border: 1rpx solid rgba(255, 255, 255, 0.3);
+}
+
+/* 用户信息 */
+.user-section {
+  display: flex;
+  align-items: center;
+  margin-bottom: 40rpx;
+  padding-bottom: 30rpx;
+  border-bottom: 1rpx solid #f0f0f0;
+}
+
+.user-avatar {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  border: 3rpx solid #fff;
+  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.1);
+  margin-right: 20rpx;
+}
+
+.user-name {
+  font-size: 32rpx;
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+/* 内容输入 */
+.content-section {
+  margin-bottom: 40rpx;
+  position: relative;
+}
+
+.content-input {
+  width: 100%;
+  min-height: 200rpx;
+  padding: 20rpx;
+  border: 2rpx solid #e1e8ed;
+  border-radius: 16rpx;
+  font-size: 28rpx;
+  color: #2c3e50;
+  background: #fff;
+  box-sizing: border-box;
+  line-height: 1.6;
+}
+
+.content-input:focus {
+  border-color: #667eea;
+}
+
+.char-count {
+  position: absolute;
+  bottom: 10rpx;
+  right: 20rpx;
+  font-size: 22rpx;
+  color: #7f8c8d;
+}
+
+/* 图片上传 */
+.images-section {
+  margin-bottom: 40rpx;
+}
+
+/* URL输入区域 */
+.url-input-section {
+  margin-top: 20rpx;
+  padding-top: 20rpx;
+  border-top: 1rpx solid rgba(255, 255, 255, 0.2);
+}
+
+.url-input-container {
+  display: flex;
+  gap: 15rpx;
+  align-items: center;
+}
+
+.url-input {
+  flex: 1;
+  height: 70rpx;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 35rpx;
+  padding: 0 20rpx;
+  font-size: 26rpx;
+  color: #2c3e50;
+  border: 1rpx solid rgba(255, 255, 255, 0.3);
+}
+
+.url-input::placeholder {
+  color: #95a5a6;
+}
+
+.add-url-btn {
+  height: 70rpx;
+  padding: 0 30rpx;
+  background: #458a5c;
+  color: #fff;
+  border: none;
+  border-radius: 35rpx;
+  font-size: 26rpx;
+  font-weight: 500;
+  box-shadow: 0 4rpx 12rpx rgba(78, 205, 196, 0.3);
+  transition: all 0.3s ease;
+}
+
+.add-url-btn:active {
+  transform: scale(0.95);
+  box-shadow: 0 6rpx 16rpx rgba(78, 205, 196, 0.4);
+}
+
+.section-title {
+  font-size: 28rpx;
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 20rpx;
+}
+
+.images-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20rpx;
+}
+
+.image-item {
+  position: relative;
+  aspect-ratio: 1;
+  border-radius: 12rpx;
+  overflow: hidden;
+}
+
+.uploaded-image {
+  width: 100%;
+  height: 100%;
+  border-radius: 12rpx;
+  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.1);
+}
+
+.image-delete {
+  position: absolute;
+  top: -5rpx;
+  right: -5rpx;
+  width: 40rpx;
+  height: 40rpx;
+  background: #e74c3c;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2rpx 8rpx rgba(231, 76, 60, 0.3);
+}
+
+.delete-icon {
+  color: #fff;
+  font-size: 24rpx;
+  font-weight: bold;
+}
+
+.upload-btn {
+  aspect-ratio: 1;
+  border: 2rpx dashed #bdc3c7;
+  border-radius: 12rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #f8f9fa;
+  transition: all 0.3s ease;
+}
+
+.upload-btn:active {
+  background: #e9ecef;
+  border-color: #667eea;
+}
+
+.upload-icon {
+  font-size: 48rpx;
+  margin-bottom: 10rpx;
+  opacity: 0.6;
+}
+
+.upload-text {
+  font-size: 22rpx;
+  color: #7f8c8d;
+}
+
+/* 标签输入 */
+.tags-section {
+  margin-bottom: 40rpx;
+}
+
+.tags-input-container {
+  display: flex;
+  gap: 15rpx;
+  margin-bottom: 20rpx;
+}
+
+.tags-input {
+  flex: 1;
+  height: 80rpx;
+  padding: 0 20rpx;
+  border: 2rpx solid #e1e8ed;
+  border-radius: 40rpx;
+  font-size: 26rpx;
+  color: #2c3e50;
+  background: #fff;
+  box-sizing: border-box;
+}
+
+.tags-input:focus {
+  border-color: #667eea;
+}
+
+.add-tag-btn {
+  width: 120rpx;
+  height: 80rpx;
+  background: #458a5c;
+  color: #fff;
+  border: none;
+  border-radius: 40rpx;
+  font-size: 26rpx;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.add-tag-btn:active {
+  transform: scale(0.95);
+}
+
+.tags-display {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15rpx;
+}
+
+.tag-item {
+  display: flex;
+  align-items: center;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #fff;
+  padding: 8rpx 16rpx;
+  border-radius: 20rpx;
+  font-size: 24rpx;
+}
+
+.tag-text {
+  margin-right: 8rpx;
+}
+
+.tag-remove {
+  width: 24rpx;
+  height: 24rpx;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20rpx;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* 发布按钮 */
+.publish-actions {
+  display: flex;
+  justify-content: center;
+}
+
+.publish-submit-btn {
+  width: 100%;
+  height: 100rpx;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #fff;
+  border: none;
+  border-radius: 50rpx;
+  font-size: 32rpx;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8rpx 24rpx rgba(102, 126, 234, 0.3);
+  transition: all 0.3s ease;
+}
+
+.publish-submit-btn:active {
+  transform: translateY(-2rpx);
+  box-shadow: 0 12rpx 32rpx rgba(102, 126, 234, 0.4);
+}
+
+.publish-submit-btn[disabled] {
+  background: #bdc3c7;
+  box-shadow: none;
+  transform: none;
+}
+
+/* 响应式设计 */
+@media (max-width: 750rpx) {
+  .container {
+    padding: 15rpx;
+  }
+  
+  .publish-form {
+    padding: 30rpx;
+  }
+  
+  .user-avatar {
+    width: 70rpx;
+    height: 70rpx;
+  }
+  
+  .user-name {
+    font-size: 28rpx;
+  }
+  
+  .content-input {
+    min-height: 150rpx;
+    font-size: 26rpx;
+  }
+  
+  .images-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15rpx;
+  }
+  
+  .upload-icon {
+    font-size: 40rpx;
+  }
+  
+  .upload-text {
+    font-size: 20rpx;
+  }
+}
+
+/* 动画效果 */
+.publish-form {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.image-item {
+  animation: fadeIn 0.3s ease-out;
+}
+
+.tag-item {
+  animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30rpx);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

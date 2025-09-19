@@ -1,0 +1,335 @@
+/* pages/share/share.wxss */
+.container {
+  background-image: url('https://miniprogramforlusin.oss-cn-hangzhou.aliyuncs.com/Sucai/backgroundone.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  min-height: 100vh;
+}
+
+/* 背景遮罩层 */
+.container::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.3) 0%, rgba(118, 75, 162, 0.3) 100%);
+  z-index: -1;
+}
+
+/* 发布头部 */
+.publish-header {
+  padding: 30rpx 20rpx;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10rpx);
+  border-bottom: 1rpx solid rgba(255, 255, 255, 0.2);
+}
+
+.publish-btn {
+  width: 100%;
+  height: 100rpx;
+  background: linear-gradient(135deg, #9cc4a9 0%, #336444 100%);
+  color: #fff;
+  border: none;
+  border-radius: 50rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32rpx;
+  font-weight: 600;
+  box-shadow: 0 8rpx 24rpx rgba(102, 126, 234, 0.3);
+  transition: all 0.3s ease;
+}
+
+.publish-btn:active {
+  transform: translateY(-2rpx);
+  box-shadow: 0 12rpx 32rpx rgba(102, 126, 234, 0.4);
+}
+
+.publish-icon {
+  font-size: 36rpx;
+  margin-right: 15rpx;
+}
+
+/* 分享列表区域 */
+.shares-section {
+  padding: 20rpx;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30rpx;
+  padding: 0 10rpx;
+}
+
+.section-title {
+  font-size: 32rpx;
+  font-weight: 600;
+  color: rgb(66, 94, 74);
+  text-shadow: 0 2rpx 4rpx rgba(0, 0, 0, 0.3);
+}
+
+.shares-count {
+  font-size: 24rpx;
+  color: rgb(66, 94, 74,0.8);
+  background: rgba(255, 255, 255, 0.2);
+  padding: 8rpx 16rpx;
+  border-radius: 20rpx;
+  backdrop-filter: blur(10rpx);
+}
+
+/* 分享列表 */
+.shares-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20rpx;
+}
+
+.share-item {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 20rpx;
+  padding: 30rpx;
+  backdrop-filter: blur(10rpx);
+  border: 1rpx solid rgba(255, 255, 255, 0.3);
+  transition: all 0.3s ease;
+}
+
+.share-item:active {
+  transform: translateY(-2rpx);
+  box-shadow: 0 12rpx 24rpx rgba(0, 0, 0, 0.15);
+}
+
+/* 分享头部 */
+.share-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20rpx;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+}
+
+.user-avatar {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  border: 3rpx solid #fff;
+  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.1);
+  margin-right: 20rpx;
+}
+
+.user-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.user-name {
+  font-size: 28rpx;
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 5rpx;
+}
+
+.publish-time {
+  font-size: 22rpx;
+  color: #7f8c8d;
+}
+
+.share-actions {
+  display: flex;
+  gap: 20rpx;
+}
+
+.action-btn {
+  display: flex;
+  align-items: center;
+  background: none;
+  border: none;
+  padding: 10rpx;
+  border-radius: 20rpx;
+  transition: all 0.3s ease;
+}
+
+.action-btn:active {
+  background: #f8f9fa;
+}
+
+.action-icon {
+  font-size: 32rpx;
+  margin-right: 8rpx;
+}
+
+.action-count {
+  font-size: 24rpx;
+  color: #7f8c8d;
+  font-weight: 500;
+}
+
+/* 分享内容 */
+.share-content {
+  margin-bottom: 20rpx;
+}
+
+.share-text {
+  font-size: 28rpx;
+  color: #2c3e50;
+  line-height: 1.6;
+  word-break: break-all;
+}
+
+/* 分享图片 */
+.share-images {
+  margin-bottom: 20rpx;
+}
+
+.images-grid {
+  border-radius: 16rpx;
+  overflow: hidden;
+}
+
+.single-image {
+  width: 100%;
+  height: 400rpx;
+  border-radius: 16rpx;
+  box-shadow: 0 8rpx 24rpx rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+}
+
+.single-image:active {
+  transform: scale(0.98);
+}
+
+.images-grid.multiple {
+  display: grid;
+  gap: 10rpx;
+}
+
+.images-grid.multiple.grid-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.images-grid.multiple.grid-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.images-grid.multiple.grid-4 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.grid-image {
+  width: 100%;
+  height: 200rpx;
+  border-radius: 12rpx;
+  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.grid-image:active {
+  transform: scale(0.95);
+}
+
+/* 分享标签 */
+.share-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10rpx;
+}
+
+.share-tag {
+  background: #68ac7f;
+  color: #fff;
+  font-size: 22rpx;
+  padding: 6rpx 12rpx;
+  border-radius: 16rpx;
+  font-weight: 500;
+}
+
+/* 加载状态 */
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 100rpx 0;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 28rpx;
+}
+
+/* 空状态 */
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 100rpx 40rpx;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.empty-icon {
+  width: 120rpx;
+  height: 120rpx;
+  margin-bottom: 20rpx;
+  opacity: 0.6;
+}
+
+.empty-text {
+  font-size: 28rpx;
+  text-align: center;
+}
+
+/* 响应式设计 */
+@media (max-width: 750rpx) {
+  .share-item {
+    padding: 25rpx;
+  }
+  
+  .user-avatar {
+    width: 70rpx;
+    height: 70rpx;
+  }
+  
+  .user-name {
+    font-size: 26rpx;
+  }
+  
+  .share-text {
+    font-size: 26rpx;
+  }
+  
+  .single-image {
+    height: 300rpx;
+  }
+  
+  .grid-image {
+    height: 150rpx;
+  }
+}
+
+/* 动画效果 */
+.share-item {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.share-item:nth-child(1) { animation-delay: 0.1s; }
+.share-item:nth-child(2) { animation-delay: 0.2s; }
+.share-item:nth-child(3) { animation-delay: 0.3s; }
+.share-item:nth-child(4) { animation-delay: 0.4s; }
+.share-item:nth-child(5) { animation-delay: 0.5s; }
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30rpx);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

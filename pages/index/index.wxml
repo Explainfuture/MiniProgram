@@ -1,0 +1,85 @@
+<!--pages/index/index.wxml-->
+<view class="container">
+  <!-- 背景图片 -->
+  
+  
+  <!-- 轮播图区域 -->
+  <view class="carousel-section">
+    <swiper class="carousel" indicator-dots="{{true}}" autoplay="{{true}}" interval="3000" duration="500">
+      <swiper-item wx:for="{{carouselImages}}" wx:key="index">
+        <image class="carousel-image" src="{{item}}" mode="aspectFill"></image>
+      </swiper-item>
+    </swiper>
+  </view>
+  
+  <!-- 音乐播放器区域 -->
+  <view class="music-player-section">
+    <view class="section-title">
+      <text class="title-icon">🎵</text>
+      <text class="title-text">背景音乐</text>
+    </view>
+    <view class="music-player">
+      <!-- 音乐封面区域 -->
+      <view class="music-cover-container">
+        <view class="music-cover {{isPlaying ? 'rotating' : ''}}">
+          <image class="cover-image" src="https://miniprogramforlusin.oss-cn-hangzhou.aliyuncs.com/Sucai/person/MainShow/xiaohei1.png" mode="aspectFill"></image>
+          <view class="cover-overlay"></view>
+        </view>
+        <view class="play-indicator {{isPlaying ? 'active' : ''}}">
+          <view class="wave wave1"></view>
+          <view class="wave wave2"></view>
+          <view class="wave wave3"></view>
+        </view>
+      </view>
+      
+      <!-- 音乐信息 -->
+      <view class="music-info">
+        <view class="music-title">晚安猫</view>
+        <view class="music-artist">罗小黑战记</view>
+      </view>
+      
+      <!-- 控制按钮 -->
+      <view class="music-controls">
+        <button class="control-btn prev-btn" bindtap="prevMusic">
+          <text class="control-icon">⏮</text>
+        </button>
+        <button class="control-btn play-btn {{isPlaying ? 'playing' : ''}}" bindtap="toggleMusic">
+          <text class="control-icon">{{isPlaying ? '⏸' : '▶'}}</text>
+        </button>
+        <button class="control-btn next-btn" bindtap="nextMusic">
+          <text class="control-icon">⏭</text>
+        </button>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 功能按钮区域 -->
+  <view class="function-buttons">
+    <button class="function-btn" bindtap="goToRelationship" style="position: relative; left: 10rpx; top: 0rpx">
+        <image class="btn-icon" 
+    src="https://miniprogramforlusin.oss-cn-hangzhou.aliyuncs.com/Sucai/buttontwo.png" 
+    mode="heightFix" style="width: 68rpx; height: 68rpx; display: flex; box-sizing: border-box; left: 0rpx; top: -22rpx"></image>
+      <text class="btn-text">关系网</text>
+    </button>
+    <button class="function-btn" bindtap="goToEpisodes">
+        <image class="btn-icon" 
+    src="https://miniprogramforlusin.oss-cn-hangzhou.aliyuncs.com/Sucai/buttonone.png" 
+    mode="heightFix" style="width: 79rpx; height: 64rpx; display: flex; box-sizing: border-box; left: 0rpx; top: -18rpx; position: relative"></image>
+      <text class="btn-text">剧集介绍</text>
+    </button>
+  </view>
+
+  <!-- 购物入口 -->
+  <view class="shop-entry" bindtap="goToShop">
+    <view class="shop-content">
+      <view class="shop-icon">🛍️</view>
+      <view class="shop-info">
+        <view class="shop-title">罗小黑周边商店</view>
+        <view class="shop-subtitle">精选好物，等你来购</view>
+      </view>
+      <view class="shop-arrow">→</view>
+    </view>
+  </view>
+  
+
+</view>

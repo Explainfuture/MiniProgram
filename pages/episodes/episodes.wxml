@@ -1,0 +1,116 @@
+<!--pages/episodes/episodes.wxml-->
+<view class="container">
+  <!-- 背景图片 -->
+  <image class="background-image" src="Sucai/background.png" mode="aspectFill"></image>
+  
+  <!-- 页面标题 -->
+  <view class="page-header">
+    <view class="back-btn" bindtap="goBack">
+      <text class="back-icon">←</text>
+      <text class="back-text">返回</text>
+    </view>
+    <view class="page-title"></view>
+  </view>
+  
+  <!-- 剧集介绍区域 -->
+  <view class="episodes-section">
+    <!-- 罗小黑大电影1 -->
+    <view class="episode-card card">
+      <view class="episode-content">
+        <view class="episode-video">
+          <video 
+            class="episode-preview" 
+            src="https://miniprogramforlusin.oss-cn-hangzhou.aliyuncs.com/Sucai/index/luoxiaoheivideo/luoxiaoheibigfilm1.mp4"
+            poster="Sucai/index/one.png"
+            controls
+            show-center-play-btn
+            show-play-btn
+            enable-progress-gesture
+            enable-fullscreen-btn
+            show-fullscreen-btn
+            object-fit="cover"
+            bindfullscreenchange="onVideoFullscreenChange">
+          </video>
+        </view>
+        <view class="episode-info">
+          <view class="episode-title">罗小黑战记大电影1</view>
+          <view class="episode-subtitle">第一部</view>
+          <view class="episode-description">
+            在熙攘的人类世界里，很多妖精隐匿其中，他们与人类相安无事地生活着。猫妖罗小黑因为家园被破坏，开始了它的流浪之旅。这场旅途中惺惺相惜的妖精同类与和谐包容的人类伙伴相继出现，让小黑陷入了两难抉择，究竟何处才是真正的归属？
+          </view>
+          <view class="episode-tags">
+            <text class="tag">动画</text>
+            <text class="tag">冒险</text>
+            <text class="tag">治愈</text>
+          </view>
+        </view>
+      </view>
+    </view>
+    
+    <!-- 罗小黑大电影2 -->
+    <view class="episode-card card">
+      <view class="episode-content">
+        <view class="episode-video">
+          <video 
+            class="episode-preview" 
+            src="https://miniprogramforlusin.oss-cn-hangzhou.aliyuncs.com/Sucai/index/luoxiaoheivideo/luoxiaoheibigfilm2.mp4"
+            poster="Sucai/index/two.png"
+            controls
+            show-center-play-btn
+            show-play-btn
+            enable-progress-gesture
+            enable-fullscreen-btn
+            show-fullscreen-btn
+            object-fit="cover"
+            bindfullscreenchange="onVideoFullscreenChange">
+          </video>
+        </view>
+        <view class="episode-info">
+          <view class="episode-title">罗小黑战记大电影2</view>
+          <view class="episode-subtitle">第二部</view>
+          <view class="episode-description">
+            延续第一部的故事，小黑在人类世界中的冒险继续。面对更大的挑战和更深的秘密，小黑与伙伴们将如何应对？这部续作将带来更加精彩的冒险故事和更深层的情感体验。
+          </view>
+          <view class="episode-tags">
+            <text class="tag">动画</text>
+            <text class="tag">冒险</text>
+            <text class="tag">友情</text>
+          </view>
+        </view>
+      </view>
+    </view>
+    
+    <!-- TV版 -->
+    <view class="episode-card card">
+      <view class="episode-content">
+        <view class="episode-video">
+          <video 
+            class="episode-preview" 
+            src="https://miniprogramforlusin.oss-cn-hangzhou.aliyuncs.com/Sucai/index/luoxiaoheivideo/luoxiaoheiTV.mp4"
+            poster="Sucai/index/three.png"
+            controls
+            show-center-play-btn
+            show-play-btn
+            enable-progress-gesture
+            enable-fullscreen-btn
+            show-fullscreen-btn
+            object-fit="cover"
+            bindfullscreenchange="onVideoFullscreenChange">
+          </video>
+        </view>
+        <view class="episode-info">
+          <view class="episode-title">罗小黑战记TV版</view>
+          <view class="episode-subtitle">动画剧集</view>
+          <view class="episode-description">
+            经典的TV动画版本，讲述了罗小黑在人类世界中的日常生活和冒险。每一集都是独立的小故事，展现了小黑与人类伙伴之间的温馨互动，以及妖精世界的奇妙设定。
+          </view>
+          <view class="episode-tags">
+            <text class="tag">动画</text>
+            <text class="tag">日常</text>
+            <text class="tag">温馨</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

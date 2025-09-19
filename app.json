@@ -1,0 +1,77 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/character/character",
+    "pages/share/share",
+    "pages/profile/profile",
+    "pages/relationship/relationship",
+    "pages/episodes/episodes",
+    "pages/shop/shop",
+    "pages/shop/test"
+  ],
+  "subPackages": [
+    {
+      "root": "pages/character/detail/",
+      "pages": [
+        "detail"
+      ]
+    },
+    {
+      "root": "pages/share/publish/",
+      "pages": [
+        "publish"
+      ]
+    }
+  ],
+  "preloadRule": {
+    "pages/index/index": {
+      "network": "all",
+      "packages": ["pages/character/detail/"]
+    }
+  },
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#2c3e50",
+    "navigationBarTitleText": "罗小黑战记",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#f8f9fa"
+  },
+  "tabBar": {
+    "color": "#7A7E83",
+    "selectedColor": "#3cc51f",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "Sucai/downbar/one-min.png",
+        "selectedIconPath": "Sucai/downbar/one-min.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/character/character",
+        "iconPath": "Sucai/downbar/two-min.png",
+        "selectedIconPath": "Sucai/downbar/two-min.png",
+        "text": "人物"
+      },
+      {
+        "pagePath": "pages/share/share",
+        "iconPath": "Sucai/downbar/three-min.png",
+        "selectedIconPath": "Sucai/downbar/three-min.png",
+        "text": "社区"
+      },
+      {
+        "pagePath": "pages/profile/profile",
+        "iconPath": "Sucai/downbar/four-min.png",
+        "selectedIconPath": "Sucai/downbar/four-min.png",
+        "text": "我的"
+      }
+    ]
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "downloadFile": 10000
+  },
+  "debug": true,
+  "sitemapLocation": "sitemap.json"
+}

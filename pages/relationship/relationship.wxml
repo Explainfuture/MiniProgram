@@ -1,0 +1,47 @@
+
+<view class="container">
+  
+  
+  
+  
+  <view class="page-header">
+    
+    <view class="back-btn" bindtap="goBack">  
+      <text class="back-icon">←</text>  
+      <text class="back-text">返回</text> 
+    </view>
+    
+    <view class="page-title">角色关系网</view>
+  </view>
+  
+ 
+  <view class="relationship-section">
+   
+    <view 
+      class="relationship-container" 
+      bindtouchstart="onTouchStart"  
+      bindtouchmove="onTouchMove"    
+      bindtouchend="onTouchEnd"     
+    >
+     
+      <view 
+        class="relationship-canvas" 
+        style="transform: scale({{scale}}) translate({{translateX}}px, {{translateY}}px); width: 581rpx; height: 531rpx; display: block; box-sizing: content-box; left: 0rpx; top: 0rpx" 
+      >
+      
+        <image 
+          class="full-container-image"
+          src="https://miniprogramforlusin.oss-cn-hangzhou.aliyuncs.com/Sucai/guanxi.png"  
+          mode="heightFix"  
+         style="height: 1022rpx; display: inline-block; box-sizing: border-box; width: 1581rpx"></image>
+      </view>
+    </view>
+    
+ 
+    <view class="zoom-controls">
+      <button class="zoom-btn" bindtap="zoomIn">+</button>  
+      <button class="zoom-btn" bindtap="zoomOut">-</button>
+      <button class="zoom-btn" bindtap="resetZoom">重置</button> 
+    </view>
+  </view>
+</view>

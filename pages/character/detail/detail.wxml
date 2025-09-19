@@ -1,0 +1,91 @@
+<!--pages/character/detail/detail.wxml-->
+<view class="container" style="background-image: url('https://miniprogramforlusin.oss-cn-hangzhou.aliyuncs.com/Sucai/backgroundone.png');">
+  <!-- 角色头部信息 -->
+  <view class="character-header">
+    <view class="character-avatar-section">
+      <image 
+        class="character-avatar-large" 
+        src="{{character.avatar}}" 
+        mode="aspectFill"
+      ></image>
+      <view class="character-badge" wx:if="{{character.isMain}}">主角</view>
+    </view>
+    
+    <view class="character-basic-info">
+      <text class="character-name">{{character.name}}</text>
+      <text class="character-title">{{character.title}}</text>
+      <view class="character-tags">
+        <text 
+          wx:for="{{character.tags}}" 
+          wx:key="*this" 
+          wx:for-item="tag"
+          class="character-tag"
+        >{{tag}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 角色详细信息 -->
+  <view class="character-details">
+    <!-- 角色介绍 -->
+    <view class="detail-section card">
+      <view class="section-title">角色介绍</view>
+      <text class="character-description">{{character.fullDescription}}</text>
+    </view>
+
+    <!-- 能力介绍 -->
+    <view class="detail-section card" wx:if="{{character.abilities && character.abilities.length > 0}}">
+      <view class="section-title">能力介绍</view>
+      <view class="abilities-list">
+        <view 
+          wx:for="{{character.abilities}}" 
+          wx:key="*this" 
+          wx:for-item="ability"
+          class="ability-item"
+        >
+          <view class="ability-icon">⚡</view>
+          <text class="ability-name">{{ability}}</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- 人际关系 -->
+    <view class="detail-section card" wx:if="{{character.relationships && character.relationships.length > 0}}">
+      <view class="section-title">配音</view>
+      <view class="relationships-list">
+        <view 
+          wx:for="{{character.relationships}}" 
+          wx:key="*this" 
+          wx:for-item="relationship"
+          class="relationship-item"
+          bindtap="onRelationshipTap"
+          data-name="{{relationship}}"
+        >
+          <view class="relationship-icon">👥</view>
+          <text class="relationship-name">{{relationship}}</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- 相关图片 -->
+    <view class="detail-section card">
+      <view class="section-title">相关图片</view>
+      <view class="character-gallery">
+        <image 
+          class="gallery-image" 
+          src="{{character.detailImage}}" 
+          mode="widthFix"
+          bindtap="previewImage"
+          data-src="{{character.detailImage}}"
+        ></image>
+        <!-- 可以添加更多相关图片 -->
+      </view>
+    </view>
+  </view>
+
+  <!-- 返回按钮 -->
+  <view class="back-button" bindtap="goBack">
+    <image class="back-icon" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTE5IDEySDUiIHN0cm9rZT0iI2ZmZiIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz4KPHBhdGggZD0iTTEyIDE5TDUgMTJMMTIgNSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPgo8L3N2Zz4K" mode="aspectFit"></image>
+    <text class="back-text">返回</text>
+  </view>
+</view>

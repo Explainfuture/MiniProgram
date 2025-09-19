@@ -1,0 +1,99 @@
+<!--pages/share/share.wxml-->
+<view class="container">
+  <!-- 发布按钮 -->
+  <view class="publish-header">
+    <button class="publish-btn btn btn-primary" bindtap="goToPublish">
+      <text class="publish-icon">✏️</text>
+      <text>发布新内容</text>
+    </button>
+  </view>
+
+  <!-- 分享列表 -->
+  <view class="shares-section">
+    <view class="section-header">
+      <text class="section-title">分享动态</text>
+      <text class="shares-count">共{{shares.length}}条动态</text>
+    </view>
+    
+    <!-- 加载状态 -->
+    <view wx:if="{{loading}}" class="loading">
+      <text>加载中...</text>
+    </view>
+    
+    <!-- 空状态 -->
+    <view wx:elif="{{shares.length === 0}}" class="empty-state">
+      <image class="empty-icon" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTMyIDU2QzQ0LjE1MDMgNTYgNTQgNDYuMTUwMyA1NCAzNEM1NCAyMS44NDk3IDQ0LjE1MDMgMTIgMzIgMTJDMTkuODQ5NyAxMiAxMCAyMS44NDk3IDEwIDM0QzEwIDQ2LjE1MDMgMTkuODQ5NyA1NiAzMiA1NloiIGZpbGw9IiNEOUQ5RDkiLz4KPHBhdGggZD0iTTMyIDQ4QzM5LjczMTkgNDggNDYgNDEuNzMxOSA0NiAzNEM0NiAyNi4yNjgxIDM5LjczMTkgMjAgMzIgMjBDMjQuMjY4MSAyMCAxOCAyNi4yNjgxIDE4IDM0QzE4IDQxLjczMTkgMjQuMjY4MSA0OCAzMiA0OFoiIGZpbGw9IiNGRkZGRkYiLz4KPHBhdGggZD0iTTI4IDMwSDM2VjM4SDI4VjMwWiIgZmlsbD0iI0Q5RDlEOSIvPgo8L3N2Zz4K" mode="aspectFit"></image>
+      <text class="empty-text">还没有分享内容，快来发布第一条吧！</text>
+    </view>
+    
+    <!-- 分享列表 -->
+    <view wx:else class="shares-list">
+      <view 
+        wx:for="{{shares}}" 
+        wx:key="id" 
+        class="share-item card"
+        bindtap="onShareTap"
+        data-share="{{item}}"
+      >
+        <!-- 用户信息 -->
+        <view class="share-header">
+          <view class="user-info">
+            <image class="user-avatar" src="{{item.userAvatar}}" mode="aspectFill"></image>
+            <view class="user-details">
+              <text class="user-name">{{item.userName}}</text>
+              <text class="publish-time">{{item.publishTime}}</text>
+            </view>
+          </view>
+          <view class="share-actions">
+            <button class="action-btn" bindtap="onLike" data-id="{{item.id}}" catchtap="true">
+              <text class="action-icon">{{item.isLiked ? '❤️' : '🤍'}}</text>
+              <text class="action-count">{{item.likeCount}}</text>
+            </button>
+          </view>
+        </view>
+        
+        <!-- 分享内容 -->
+        <view class="share-content">
+          <text class="share-text">{{item.content}}</text>
+        </view>
+        
+        <!-- 分享图片 -->
+        <view class="share-images" wx:if="{{item.images && item.images.length > 0}}">
+          <view class="images-grid" wx:if="{{item.images.length === 1}}">
+            <image 
+              class="single-image" 
+              src="{{item.images[0]}}" 
+              mode="aspectFill"
+              bindtap="previewImages"
+              data-current="{{item.images[0]}}"
+              data-urls="{{item.images}}"
+            ></image>
+          </view>
+          <view class="images-grid multiple" wx:else>
+            <image 
+              wx:for="{{item.images}}" 
+              wx:key="*this"
+              wx:for-item="image"
+              class="grid-image" 
+              src="{{image}}" 
+              mode="aspectFill"
+              bindtap="previewImages"
+              data-current="{{image}}"
+              data-urls="{{item.images}}"
+            ></image>
+          </view>
+        </view>
+        
+        <!-- 分享标签 -->
+        <view class="share-tags" wx:if="{{item.tags && item.tags.length > 0}}">
+          <text 
+            wx:for="{{item.tags}}" 
+            wx:key="*this" 
+            wx:for-item="tag"
+            class="share-tag"
+          >#{{tag}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

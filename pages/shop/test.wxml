@@ -1,0 +1,29 @@
+<!--pages/shop/test.wxml-->
+<view class="container">
+  <view class="header">
+    <text class="title">🛍️ 购物功能测试</text>
+    <text class="subtitle">测试云数据库和购物功能</text>
+    <view class="status-display">
+      <text class="status-label">云数据库状态：</text>
+      <text class="status-value">{{cloudStatus}}</text>
+    </view>
+  </view>
+
+  <view class="test-buttons">
+    <button class="test-btn init-btn" bindtap="oneClickInit">🚀 一键初始化云数据库</button>
+    <button class="test-btn" bindtap="testCloudConnection">测试云数据库连接</button>
+    <button class="test-btn" bindtap="testLoadProducts">测试商品数据加载</button>
+    <button class="test-btn" bindtap="initTestData">初始化测试数据</button>
+    <button class="test-btn clear-btn" bindtap="clearResults">清空结果</button>
+  </view>
+
+  <view class="results-container">
+    <text class="results-title">测试结果：</text>
+    <view class="results-list">
+      <view class="result-item" wx:for="{{testResults}}" wx:key="id">
+        <text class="result-time">[{{item.time}}]</text>
+        <text class="result-message">{{item.message}}</text>
+      </view>
+    </view>
+  </view>
+</view>

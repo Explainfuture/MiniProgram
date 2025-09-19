@@ -1,0 +1,97 @@
+<!--pages/shop/shop.wxml-->
+<view class="container">
+  <!-- 页面标题 -->
+  <view class="page-header">
+    <text class="page-title">🛍️ 罗小黑周边商店</text>
+    <text class="page-subtitle">精选好物，等你来购</text>
+  </view>
+
+
+  <!-- 加载状态 -->
+  <view class="loading-container" wx:if="{{loading}}">
+    <text class="loading-text">正在加载商品...</text>
+  </view>
+
+  <!-- 商品列表 -->
+  <view class="products-container" wx:else>
+    <view class="product-card" wx:for="{{products}}" wx:key="_id" bindtap="viewProductDetail" data-id="{{item._id}}">
+      <view class="product-image-container">
+        <image class="product-image" src="{{item.image}}" mode="aspectFill"></image>
+        <view class="stock-badge" wx:if="{{item.stock <= 5}}">仅剩{{item.stock}}件</view>
+      </view>
+      
+      <view class="product-info">
+        <view class="product-name">{{item.name}}</view>
+        <view class="product-model">{{item.model}}</view>
+        <view class="product-price">¥{{item.price}}</view>
+        <view class="product-stock">库存：{{item.stock}}件</view>
+      </view>
+      
+      <button class="add-to-cart-btn" 
+              bindtap="addToCart" 
+              data-id="{{item._id}}"
+              disabled="{{item.stock <= 0}}">
+        {{item.stock <= 0 ? '缺货' : '加入购物车'}}
+      </button>
+    </view>
+  </view>
+
+  <!-- 购物车弹窗 -->
+  <view class="cart-modal {{showCart ? 'show' : ''}}" bindtap="toggleCart">
+    <view class="cart-content" catchtap="true">
+      <view class="cart-header">
+        <text class="cart-title">购物车</text>
+        <button class="clear-cart-btn" bindtap="clearCart" wx:if="{{cart.length > 0}}">清空</button>
+      </view>
+      
+      <view class="cart-items" wx:if="{{cart.length > 0}}">
+        <view class="cart-item" wx:for="{{cart}}" wx:key="_id">
+          <image class="cart-item-image" src="{{item.image}}" mode="aspectFill"></image>
+          
+          <view class="cart-item-info">
+            <view class="cart-item-name">{{item.name}}</view>
+            <view class="cart-item-model">{{item.model}}</view>
+            <view class="cart-item-price">¥{{item.price}}</view>
+          </view>
+          
+          <view class="cart-item-controls">
+            <button class="quantity-btn" bindtap="updateQuantity" data-id="{{item._id}}" data-type="decrease">-</button>
+            <text class="quantity">{{item.quantity}}</text>
+            <button class="quantity-btn" bindtap="updateQuantity" data-id="{{item._id}}" data-type="increase">+</button>
+          </view>
+          
+          <button class="remove-btn" bindtap="removeFromCart" data-id="{{item._id}}">×</button>
+        </view>
+      </view>
+      
+      <view class="cart-empty" wx:else>
+        <text class="empty-text">购物车空空如也~</text>
+        <text class="empty-hint">快去选购心仪的商品吧</text>
+      </view>
+      
+      <view class="cart-footer" wx:if="{{cart.length > 0}}">
+        <view class="total-price">
+          <text class="total-label">总计：</text>
+          <text class="total-amount">¥{{totalPrice}}</text>
+        </view>
+        <button class="checkout-btn" bindtap="checkout">立即结算</button>
+      </view>
+    </view>
+  </view>
+
+  <!-- 底部购物车栏 -->
+  <view class="bottom-cart-bar" wx:if="{{cart.length > 0}}">
+    <view class="cart-info" bindtap="toggleCart">
+      <view class="cart-icon-bottom">
+        <text class="icon">🛒</text>
+        <text class="cart-count-bottom" wx:if="{{cart.length > 0}}">{{cart.length}}</text>
+      </view>
+      <view class="cart-text">
+        <text class="cart-title">购物车</text>
+        <text class="cart-subtitle">{{cart.length}}件商品</text>
+      </view>
+    </view>
+    <text class="cart-price">¥{{totalPrice}}</text>
+    <button class="checkout-btn-bottom" bindtap="checkout">结算</button>
+  </view>
+</view>

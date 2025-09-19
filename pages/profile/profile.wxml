@@ -1,0 +1,102 @@
+<!--pages/profile/profile.wxml-->
+<view class="container">
+  <!-- 用户信息区域 -->
+  <view class="user-section">
+    <view class="user-info" wx:if="{{userInfo}}">
+      <image class="user-avatar" src="{{userInfo.avatarUrl}}" mode="aspectFill"></image>
+      <view class="user-details">
+        <text class="user-name">{{userInfo.nickName}}</text>
+        <text class="user-desc">罗小黑战记粉丝</text>
+      </view>
+    </view>
+    
+    <view class="login-section" wx:else>
+      <image class="default-avatar" src="https://miniprogramforlusin.oss-cn-hangzhou.aliyuncs.com/Sucai/userthree.png" mode="aspectFill"></image>
+      <view class="login-info">
+        <text class="login-title">欢迎来到罗小黑战记</text>
+        <text class="login-desc">登录后可以发布分享和收藏内容</text>
+      </view>
+      <button class="login-btn" bindtap="login">
+        <text class="login-btn-text">微信一键登录</text>
+      </button>
+    </view>
+  </view>
+
+  <!-- 统计信息 -->
+  <view class="stats-section" wx:if="{{userInfo}}">
+    <view class="stats-grid">
+      <view class="stat-item">
+        <text class="stat-number">{{myShares.length}}</text>
+        <text class="stat-label">我的发布</text>
+      </view>
+      <view class="stat-item">
+        <text class="stat-number">{{likeCount}}</text>
+        <text class="stat-label">获赞数</text>
+      </view>
+      <view class="stat-item">
+        <text class="stat-number">{{viewCount}}</text>
+        <text class="stat-label">浏览数</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 功能菜单 -->
+  <view class="menu-section">
+    <view class="menu-item" bindtap="goToMyShares">
+      <view class="menu-icon">📝</view>
+      <text class="menu-title">我的发布</text>
+      <text class="menu-count">{{myShares.length}}</text>
+      <text class="menu-arrow">></text>
+    </view>
+    
+    <view class="menu-item" bindtap="goToFavorites">
+      <view class="menu-icon">❤️</view>
+      <text class="menu-title">我的收藏</text>
+      <text class="menu-count">{{favorites.length}}</text>
+      <text class="menu-arrow">></text>
+    </view>
+    
+    <view class="menu-item" bindtap="goToSettings">
+      <view class="menu-icon">⚙️</view>
+      <text class="menu-title">设置</text>
+      <text class="menu-arrow">></text>
+    </view>
+    
+    <view class="menu-item" bindtap="goToAbout">
+      <view class="menu-icon">ℹ️</view>
+      <text class="menu-title">关于我们</text>
+      <text class="menu-arrow">></text>
+    </view>
+  </view>
+
+  <!-- 我的发布预览 -->
+  <view class="my-shares-section" wx:if="{{userInfo && myShares.length > 0}}">
+    <view class="section-header">
+      <text class="section-title">我的发布</text>
+      <text class="view-all" bindtap="goToMyShares">查看全部</text>
+    </view>
+    
+    <view class="shares-preview">
+      <view 
+        wx:for="{{myShares.slice(0, 3)}}" 
+        wx:key="id" 
+        class="share-preview-item"
+        bindtap="onShareTap"
+        data-share="{{item}}"
+      >
+        <view class="preview-content">
+          <text class="preview-text">{{item.content}}</text>
+          <text class="preview-time">{{item.publishTime}}</text>
+        </view>
+        <view class="preview-image" wx:if="{{item.images && item.images.length > 0}}">
+          <image class="preview-img" src="{{item.images[0]}}" mode="aspectFill"></image>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 退出登录 -->
+  <view class="logout-section" wx:if="{{userInfo}}">
+    <button class="logout-btn" bindtap="logout">退出登录</button>
+  </view>
+</view>
